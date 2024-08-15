@@ -2,6 +2,9 @@
 
 This action is designed to sync a folder in your repo with the Wiki Repo, allowing for better contributor worklow and ease of editing the Wiki.
 
+All changes made manually to the wiki will be overwritten with the state of the designated wiki
+folder in your repository during the next sync.
+
 ## Example
 
 ```yaml
