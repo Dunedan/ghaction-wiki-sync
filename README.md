@@ -44,7 +44,7 @@ There are no outputs for this action.
 
 ## Requirements
 
-The action requires a checkout of the main repo beforehand.
+The action requires that the wiki repository has been initialized beforehand.
 
 ## License
 
