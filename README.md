@@ -19,7 +19,7 @@ jobs:
         steps:
           - uses: actions/checkout@master
           - name: Sync Wiki
-            uses: joeizzard/action-wiki-sync@master
+            uses: joeizzard/ghaction-wiki-sync@master
             with:
                 wiki_folder: wiki
                 commit_username: 'Example Name'
