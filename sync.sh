@@ -12,7 +12,7 @@ git clone "$WIKI" "$WIKI_CHECKOUT_DIR"
 cd "$WIKI_CHECKOUT_DIR"
 
 echo "Cleaning..."
-rm -r *
+rm -r -- *
 
 echo "Copy Files..."
 echo "-> Wiki Folder: ${INPUT_WIKI_FOLDER}"
