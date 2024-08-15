@@ -34,7 +34,11 @@ echo "Commit..."
 echo "-> Message: ${INPUT_COMMIT_MESSAGE}"
 cd "$WIKI_CHECKOUT_DIR"
 git add -A
-git commit -m "${INPUT_COMMIT_MESSAGE}"
-git push "$WIKI"
+if ! git diff --cached --exit-code > /dev/null; then
+    git commit -m "${INPUT_COMMIT_MESSAGE}"
+    git push "$WIKI"
+else
+    echo "No changes to commit."
+fi
 
 echo "Finished!"
