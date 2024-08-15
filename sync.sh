@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 WIKI="https://github.com/${GITHUB_REPOSITORY}.wiki.git"
 WIKIP="https://${INPUT_USERNAME}:${INPUT_ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
 

@@ -47,7 +47,7 @@ There are no outputs for this action.
 
 ## Requirements
 
-The action uses Docker, as such is limited to Linux based runners. It also requires a checkout of the main repo beforehand.
+The action requires a checkout of the main repo beforehand.
 
 ## License
 
