@@ -6,8 +6,11 @@ branding:
     color: orange
 inputs:
     access_token:
-        description: 'The access token with Repo access. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.'
-        required: true
+        description: |
+            An access token to use when pushing to the Wiki repo. Usually
+            doesn't need to be set, as it defaults to `${{ github.token }}`.
+        required: false
+        default: ${{ github.token }}
     wiki_folder:
         description: 'The folder you want to sync the repo with'
         required: false

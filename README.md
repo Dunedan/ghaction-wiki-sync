@@ -21,7 +21,6 @@ jobs:
           - name: Sync Wiki
             uses: joeizzard/action-wiki-sync@master
             with:
-                access_token: ${{ secrets.GITHUB_TOKEN }}
                 wiki_folder: wiki
                 commit_username: 'Example Name'
                 commit_email: 'example@users.noreply.github.com'
@@ -33,7 +32,7 @@ In this example, the `wiki` folder will be synced with the wiki repo everytime a
 
 | Input | Required | Info |
 | :----- | :-----: | :----- |
-| `access_token` | Y | An access token to use when pushing to the Wiki repo, can be set using `${{ secrets.GITHUB_TOKEN }}` |
+| `access_token` | N | An access token to use when pushing to the Wiki repo. Usually doesn't need to be set as it defaults to `${{ github.token }}` |
 | `wiki_folder` | N | The folder to sync to the Wiki. <br/> <i>Default: `wiki`</i> |
 | `commit_username` | Y | The username to use when pushing to the wiki repo |
 | `commit_email` | Y | The email address to use when pushing to the wiki repo. Our example uses the [annonymous email](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address) from GitHub |
