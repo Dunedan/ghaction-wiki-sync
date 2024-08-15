@@ -5,9 +5,6 @@ branding:
     icon: upload-cloud
     color: orange
 inputs:
-    username:
-        description: 'The username of the repo owner'
-        required: true
     access_token:
         description: 'The access token with Repo access. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.'
         required: true

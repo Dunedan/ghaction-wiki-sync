@@ -21,7 +21,6 @@ jobs:
           - name: Sync Wiki
             uses: joeizzard/action-wiki-sync@master
             with:
-                username: example
                 access_token: ${{ secrets.GITHUB_TOKEN }}
                 wiki_folder: wiki
                 commit_username: 'Example Name'
@@ -34,7 +33,6 @@ In this example, the `wiki` folder will be synced with the wiki repo everytime a
 
 | Input | Required | Info |
 | :----- | :-----: | :----- |
-| `username` | Y | The repo owner's name. Used for pulling and pushing |
 | `access_token` | Y | An access token to use when pushing to the Wiki repo, can be set using `${{ secrets.GITHUB_TOKEN }}` |
 | `wiki_folder` | N | The folder to sync to the Wiki. <br/> <i>Default: `wiki`</i> |
 | `commit_username` | Y | The username to use when pushing to the wiki repo |

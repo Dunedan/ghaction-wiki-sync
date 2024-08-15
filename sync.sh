@@ -2,7 +2,7 @@
 
 set -e
 GITHUB_DOMAIN="$(echo "$GITHUB_SERVER_URL" | sed 's#https://\([\S]*\)#\1#')"
-WIKI="https://${INPUT_USERNAME}:${INPUT_ACCESS_TOKEN}@${GITHUB_DOMAIN}/${GITHUB_REPOSITORY}.wiki.git"
+WIKI="https://${GITHUB_REPOSITORY_OWNER}:${INPUT_ACCESS_TOKEN}@${GITHUB_DOMAIN}/${GITHUB_REPOSITORY}.wiki.git"
 
 echo "Cloning WIKI Repo..."
 git clone "$WIKI" /wiki
