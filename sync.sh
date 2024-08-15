@@ -4,9 +4,12 @@ set -e
 GITHUB_DOMAIN="$(echo "$GITHUB_SERVER_URL" | sed 's#https://\([\S]*\)#\1#')"
 WIKI="https://${GITHUB_REPOSITORY_OWNER}:${INPUT_ACCESS_TOKEN}@${GITHUB_DOMAIN}/${GITHUB_REPOSITORY}.wiki.git"
 
+WIKI_CHECKOUT_DIR="$(mktemp -d)"
+trap 'rm -rf -- "$WIKI_CHECKOUT_DIR"' EXIT
+
 echo "Cloning WIKI Repo..."
-git clone "$WIKI" /wiki
-cd /wiki
+git clone "$WIKI" "$WIKI_CHECKOUT_DIR"
+cd "$WIKI_CHECKOUT_DIR"
 
 echo "Cleaning..."
 rm -r *
@@ -19,7 +22,7 @@ if [ ! -d "${GITHUB_WORKSPACE}/${INPUT_WIKI_FOLDER}" ]; then
     echo "Specified Wiki Folder Missing"
     exit 1
 fi
-cp -a ${INPUT_WIKI_FOLDER}/. /wiki
+cp -a "${INPUT_WIKI_FOLDER}/." "$WIKI_CHECKOUT_DIR"
 
 echo "Git Config..."
 echo "-> User: ${INPUT_COMMIT_USERNAME}"
@@ -29,7 +32,7 @@ git config --global user.name "${INPUT_COMMIT_USERNAME}"
 
 echo "Commit..."
 echo "-> Message: ${INPUT_COMMIT_MESSAGE}"
-cd /wiki
+cd "$WIKI_CHECKOUT_DIR"
 git add -A
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 git push "$WIKI"
